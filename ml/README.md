@@ -124,6 +124,7 @@ There are 2 possible keys in JSON file: `placeVisit` and `activitySegment`. We p
 
 - We do not flatten `otherCandidateLocations` as the primary location has the highest confidence
 - Integer latitude and longtitude are converted to standard float format
+- `startTimestampMs` & `endTimestampMs` converted to human readable datetime
 
 ### activitySegment (after parsed)
 
@@ -133,7 +134,7 @@ There are 2 possible keys in JSON file: `placeVisit` and `activitySegment`. We p
 
 - We do not flatten `activites` as the primary activity has the highest confidence
 - Integer latitude and longtitude (both startLocation & endLocation) are converted to standard float format
-
+- `startTimestampMs` & `endTimestampMs` converted to human readable datetime
 
 ## Data processing
 
