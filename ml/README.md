@@ -12,7 +12,7 @@ We use Anaconda to manage our Python environment. **Please download it** with th
 ### Create conda environment from environment.yml file
 
 ```bash
-conda env create -f environment.yml
+$ conda env create -f environment.yml
 ```
 
 ### Activate environment
@@ -20,7 +20,7 @@ conda env create -f environment.yml
 You need to activate the environment for data-processing steps.
 
 ```bash
-conda activate covid-19
+$ conda activate covid-19
 ```
 
 [Full conda managing environments documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#removing-an-environment)
@@ -133,3 +133,22 @@ There are 2 possible keys in JSON file: `placeVisit` and `activitySegment`. We p
 
 - We do not flatten `activites` as the primary activity has the highest confidence
 - Integer latitude and longtitude (both startLocation & endLocation) are converted to standard float format
+
+
+## Data processing
+
+```bash
+# Once again, activate environment if it's not
+$ conda activate covid-19
+
+# cd into current folder
+$ cd ~/covid-19/ml/
+
+# Import file (the code import 1 file at a time)
+$ python data_import.py 2017_JULY.json
+> Processing 2017_JULY.json ...
+> Data exported:
+>     - 2017_JULY_place_visit.csv
+>     - 2017_JULY_activity_segment.csv
+> Data import and processing completed. Program terminated ...
+```
