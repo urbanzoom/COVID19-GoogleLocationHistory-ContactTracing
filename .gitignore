@@ -129,4 +129,6 @@ dmypy.json
 .pyre/
 
 # Custom
-*.json
+ml/*.json
+ml/*.ipynb
+.idea
