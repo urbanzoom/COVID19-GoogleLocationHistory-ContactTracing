@@ -131,4 +131,5 @@ dmypy.json
 # Custom
 ml/*.json
 ml/*.ipynb
+ml/*.csv
 .idea
