@@ -115,6 +115,6 @@ dependencies:
   - zipp=2.2.0=py_0
   - zlib=1.2.11=h7b6447c_3
   - pip:
-    - data-manipulation==0.10
+    - data-manipulation==0.11
     - psycopg2==2.8.4
 
