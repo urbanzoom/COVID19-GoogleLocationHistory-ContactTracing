@@ -6,13 +6,15 @@ function App() {
     <div className='container'>
       <h1 className='text-center mt-3'>Covid-19 contact tracing</h1>
       <div className='row'>
+        <img className='mb-3' src='/heatmap.jpg' />
         <UploadComponent></UploadComponent>
       </div>
       <hr />
       <div className='row'>
         <div className='col-12 mt-3'>
+          <div className='font-weight-bold'>What is this?</div>
           <p>
-            This is an open source project for contact tracing of COVID-19 virus by leveraging your personal Location History recorded by Google.
+            This is an open source project for contact tracing of COVID-19 virus by leveraging your personal Location History recorded by Google<sup>*</sup>.
           </p>
         </div>
       </div>
@@ -21,9 +23,9 @@ function App() {
           <div className='font-weight-bold'>FAQs:</div>
           <dl className='faq__list'>
             <dt>How do I get more info on this project?</dt>
-            <dd>Check out this subreddit post on <a href='https://www.reddit.com/t/coronavirus/' alt='Coronavirus on Redit'>r/coronavirus</a> . We will try our best to answer all your questions (not found on FAQs) as possible over at Reddit. </dd>
+            <dd>Check out this subreddit post on <a href='https://www.reddit.com/t/coronavirus/' alt='Coronavirus on Redit'>r/coronavirus</a>. We will try our best to answer all your questions (not found on FAQs) as possible over at Reddit. </dd>
 
-            <dt>How does this work?</dt>
+            <dt id='how-does-this-work'>How does this work?</dt>
             <dd>We use your Location History recorded by Google (see <a href='/'>how to download your own Location History</a>) to run against a database of known clusters of COVID-19. </dd>
 
             <dt>Where do you source for your known clusters of COVID-19?</dt>
@@ -47,6 +49,9 @@ function App() {
           </dl>
         </div>
       </section>
+      <small className='mb-3'>
+        <sup>*</sup> We are not affiliated, associated, authorized, endorsed by, or in any way officially connected with Google, or any of its subsidiaries or its affiliates.
+      </small>
     </div>
   );
 }
