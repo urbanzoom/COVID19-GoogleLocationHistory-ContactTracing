@@ -42,7 +42,7 @@ function App() {
             <dd>Please reach out to <a href='mailto:contact.tracing.org@gmail.com'>contact.tracing.org@gmail.com</a>. We will liaise with you from there. </dd>
 
             <dt>I’m a software developer or data scientist or cybersecurity experts or basically a geek. How can I contribute?</dt>
-            <dd>The source code is available here on <a href='https://github.com/urbanzoom/covid-19' alt='GitHub Repo'>GitHub</a>. Feel free to contribute or clone this project to further improve on it. This is meant to be just a proof of concept. We certainly don’t have all the answers (probably we don’t even know what’re the proper questions to ask in the first place) but we believe we should just build it super quick and let the world build upon it. </dd>
+            <dd>The source code is available here on <a href='https://github.com/urbanzoom/covid-19-contact-tracing' alt='GitHub Repo'>GitHub</a>. Feel free to contribute or clone this project to further improve on it. This is meant to be just a proof of concept. We certainly don’t have all the answers (probably we don’t even know what’re the proper questions to ask in the first place) but we believe we should just build it super quick and let the world build upon it. </dd>
 
             <dt>Who’s behind this project?</dt>
             <dd>This was done over a weekend by a few friends (we’re all teammates in a <a href='https://www.urbanzoom.com' alt='UrbanZoom' title='UrbanZoom'>small proptech startup</a> based in Singapore). We are Niresh, Malai, Shinn, Shawn & Michael.</dd>
