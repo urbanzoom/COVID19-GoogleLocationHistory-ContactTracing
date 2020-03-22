@@ -13,6 +13,8 @@ class UploadComponent extends React.Component {
     super(props);
 
     this.state = {
+      // intersection: ['Subang Jaya Medical Center', 'Sunway Medical Center'],
+      intersection: [],
       files: []
     }
   }
@@ -40,8 +42,32 @@ class UploadComponent extends React.Component {
             });
           }}
         />
+        { this.renderMessage() }
       </div>
     )
+  }
+
+  renderMessage () {
+    if (this.state.intersection.length === 0) {
+      return (
+        <p className='text-center'>
+          We didn't find any matches with confirm cases in our database.
+          <br /><br />
+          Please avoid any crowded places and practice social distancing at all time.
+        </p>
+      )
+    } else {
+      const clusters = this.state.intersection.map(x => <p>  - {x}</p>)
+      const match = this.state.intersection.length > 1 ? 'matches' : 'a match'
+
+      return (
+        <p className='text-center'>
+          Unfortunately, we've found {match} in your travel history with the following clusters:
+          <br /><br />
+          {clusters}
+        </p>
+      )
+    }
   }
 
   serverProcess = (fieldName, file, metadata, load, error, progress, abort) => {
