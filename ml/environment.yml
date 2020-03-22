@@ -4,6 +4,7 @@ channels:
   - defaults
 dependencies:
   - _libgcc_mutex=0.1=main
+  - asgiref=3.2.5=py_0
   - asn1crypto=1.3.0=py38_0
   - attrs=19.3.0=py_0
   - backcall=0.1.0=py38_0
@@ -18,6 +19,9 @@ dependencies:
   - dbus=1.13.12=h746ee38_0
   - decorator=4.4.2=py_0
   - defusedxml=0.6.0=py_0
+  - django=3.0.4=py38_0
+  - django-filter=2.2.0=py_0
+  - djangorestframework=3.11.0=py_0
   - entrypoints=0.3=py38_0
   - expat=2.2.6=he6710b0_0
   - fontconfig=2.13.0=h9420a91_0
@@ -53,6 +57,7 @@ dependencies:
   - libuuid=1.0.3=h1bed415_2
   - libxcb=1.13=h1bed415_1
   - libxml2=2.9.9=hea5a465_1
+  - markdown=3.2.1=py_0
   - markupsafe=1.1.1=py38h7b6447c_0
   - mistune=0.8.4=py38h7b6447c_1000
   - mkl=2020.0=166
@@ -99,6 +104,7 @@ dependencies:
   - six=1.14.0=py38_0
   - soupsieve=1.9.4=py38h32f6830_1
   - sqlite=3.31.1=h7b6447c_0
+  - sqlparse=0.3.1=py_0
   - terminado=0.8.3=py38_0
   - testpath=0.4.4=py_0
   - tk=8.6.8=hbc83047_0
