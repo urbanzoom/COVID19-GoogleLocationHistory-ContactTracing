@@ -116,6 +116,17 @@ The goal is to parse Google takeout semantic location history's JSON file
 
 There are 2 possible keys in JSON file: `placeVisit` and `activitySegment`. We parsed and transformed the nested json data structure into flat format for data science purpose.
 
+### Clustering
+
+takes in two files as arguments:
+i) raw json file as downloaded from Google Takeout.
+ii) cluster data as input. see sample.
+
+returns:
+i) matched user data as csv see sample.
+ii) matched cluster data. see sample.
+
+
 ### placeVisit (after parsed)
 
 | placeConfidence | centerLatE7 | centerLngE7 | visitConfidence | otherCandidateLocations | editConfirmationStatus | childVisits | simplifiedRawPath | latitudeE7 | longitudeE7 | placeId | address | name | sourceInfo | locationConfidence | semanticType | startTimestampMs | endTimestampMs |
