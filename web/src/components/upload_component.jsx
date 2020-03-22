@@ -13,8 +13,7 @@ class UploadComponent extends React.Component {
     super(props);
 
     this.state = {
-      intersection: ['Subang Jaya Medical Center', 'Sunway Medical Center'],
-      // intersection: [],
+      intersection: [],
       files: []
     }
   }

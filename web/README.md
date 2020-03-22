@@ -3,6 +3,12 @@ Simple json uploader to S3
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Deploy to Heroku
+```
+# Under the main root directory, push only /web subdirectory
+$ git subtree push --prefix web heroku master
+```
+
 ## Available Scripts
 
 In the project directory, you can run:

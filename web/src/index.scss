@@ -18,10 +18,35 @@ a {
   color: #61dafb;
 }
 
+hr {
+  border: none;
+  border-top: 2px solid #c8c8c8;
+  margin: 2rem 0;
+}
+
+/* helpers */
+
 .text-center {
   text-align: center;
 }
 
 .mt-3 {
   margin-top: 1rem;
+}
+
+.font-weight-bold {
+  font-weight: 800;
+}
+
+/* custom css */
+
+.faq__list {
+  dt {
+    font-weight: 400;
+    text-decoration: underline;
+    margin-bottom: 1rem;
+  }
+  dd {
+    margin-bottom: 1.5rem;
+  }
 }
