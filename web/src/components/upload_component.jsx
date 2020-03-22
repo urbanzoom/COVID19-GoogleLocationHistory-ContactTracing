@@ -13,8 +13,8 @@ class UploadComponent extends React.Component {
     super(props);
 
     this.state = {
-      // intersection: ['Subang Jaya Medical Center', 'Sunway Medical Center'],
-      intersection: [],
+      intersection: ['Subang Jaya Medical Center', 'Sunway Medical Center'],
+      // intersection: [],
       files: []
     }
   }
@@ -71,7 +71,7 @@ class UploadComponent extends React.Component {
   }
 
   serverProcess = (fieldName, file, metadata, load, error, progress, abort) => {
-    debugger;
+    const that = this
     s3.upload({
       Bucket: process.env.REACT_APP_S3_BUCKET,
       Key: Date.now() + '_' + file.name,
@@ -84,9 +84,23 @@ class UploadComponent extends React.Component {
         error('Something went wrong');
         return;
       }
+      // that.notifyServer(data.Key)
       // pass file unique id back to filepond
       load(data.Key);
     });
+  }
+
+  // WIP
+  notifyServer = (filename) => {
+    fetch('/', {filename: filename})
+      .then(resp => resp.json())
+      .then(resp => {
+        if (resp.status >= 200) {
+          this.setState({
+            intersection: []
+          })
+        }
+      })
   }
 }
 
