@@ -30,15 +30,17 @@ hr {
   text-align: center;
 }
 
-.mt-3 {
-  margin-top: 1rem;
-}
-
 .font-weight-bold {
   font-weight: 800;
 }
 
 /* custom css */
+
+.map__image {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
 
 .faq__list {
   dt {

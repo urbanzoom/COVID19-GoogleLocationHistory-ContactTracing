@@ -13,7 +13,7 @@ class UploadComponent extends React.Component {
     super(props);
 
     this.state = {
-      intersection: [],
+      intersection: null,
       files: []
     }
   }
@@ -28,7 +28,7 @@ class UploadComponent extends React.Component {
         <FilePond
           ref={ref => (this.pond = ref)}
           files={this.state.files}
-          maxFiles={3}
+          maxFiles={1}
           instantUpload={true}
           server={{
             process: this.serverProcess
@@ -47,12 +47,22 @@ class UploadComponent extends React.Component {
   }
 
   renderMessage () {
-    if (this.state.intersection.length === 0) {
+    if (this.state.intersection === null) {
+      return ''
+    } else if (this.state.intersection.length === 0) {
       return (
         <p className='text-center'>
           We didn't find any matches with confirm cases in our database.
           <br /><br />
           Please avoid any crowded places and practice social distancing at all time.
+        </p>
+      )
+    } else if (this.state.intersection === 'error') {
+      return (
+        <p className='text-center'>
+          Something went wrong with your uploaded file.
+          <br /><br />
+          Please check on <a href='#how-does-this-work'>the link below</a> to find out how to get the correct Location History file.
         </p>
       )
     } else {
@@ -71,9 +81,10 @@ class UploadComponent extends React.Component {
 
   serverProcess = (fieldName, file, metadata, load, error, progress, abort) => {
     const that = this
+    const fileName = Date.now() + '_' + file.name
     s3.upload({
       Bucket: process.env.REACT_APP_S3_BUCKET,
-      Key: Date.now() + '_' + file.name,
+      Key: fileName,
       Body: file,
       ContentType: file.type,
       ACL: 'private'
@@ -83,7 +94,7 @@ class UploadComponent extends React.Component {
         error('Something went wrong');
         return;
       }
-      // that.notifyServer(data.Key)
+      // that.notifyServer(fileName)
       // pass file unique id back to filepond
       load(data.Key);
     });
@@ -97,6 +108,10 @@ class UploadComponent extends React.Component {
         if (resp.status >= 200) {
           this.setState({
             intersection: []
+          })
+        } else {
+          this.setState({
+            intersection: 'error'
           })
         }
       })
