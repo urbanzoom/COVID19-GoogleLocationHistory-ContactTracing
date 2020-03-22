@@ -1,0 +1,8 @@
+// https://github.com/mars/create-react-app-buildpack
+{
+  "root": "build/",
+  "routes": {
+    "/**": "index.html"
+  },
+  "https_only": true
+}
