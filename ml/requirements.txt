@@ -19,6 +19,7 @@ django-filter==2.2.0
 djangorestframework==3.11.0
 docutils==0.15.2
 entrypoints==0.3
+haversine==2.2.0
 idna==2.9
 importlib-metadata==1.5.0
 ipykernel==5.1.4
