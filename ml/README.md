@@ -118,13 +118,13 @@ There are 2 possible keys in JSON file: `placeVisit` and `activitySegment`. We p
 
 ### Clustering
 
-takes in two files as arguments:
-i) raw json file as downloaded from Google Takeout.
-ii) cluster data as input. see sample.
+takes in two files as arguments: \n
+i) raw json file as downloaded from Google Takeout. \n
+ii) cluster data as input. see sample. \n
 
-returns:
-i) matched user data as csv see sample.
-ii) matched cluster data. see sample.
+returns: \n
+i) matched user data as csv see sample. \n
+ii) matched cluster data. see sample. \n
 
 
 ### placeVisit (after parsed)
