@@ -40,6 +40,13 @@ function App() {
             <dt>Where do you source for your known clusters of COVID-19?</dt>
             <dd>As an initial demo of the project, we just take the publicly announced clusters from Malaysia. We hope to quickly open up access to other folks so that this can be crowd-sourced from the community around the world to contribute to an ever-growing repository of possible COVID-19 clusters or previous visited locations by COVID-19 patients.</dd>
 
+            <dt>How do you match my Google Location History against known COVID-19 clusters?</dt>
+            <dd>
+              We do the match by space (within 50 meters from cluster location) and time (within same day).
+              <br/><br/>
+              If we begin to start having access to more granular data around timing of clusters or previously visited locations by infected patients, we may consider narrowing the time window to below same day basis.
+            </dd>
+
             <dt>Is my privacy protected?</dt>
             <dd>
               When you upload your Location History file, we will run it against our database for a brief moment. Once that process is completed, your file will be immediately deleted. We have no intention of storing your Location History file. We also won’t be collecting your name or contact number.
