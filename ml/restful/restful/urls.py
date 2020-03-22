@@ -26,4 +26,5 @@ urlpatterns = [
     path('root/', admin.site.urls),
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('gsl/', views.WebhookViewSet.as_view())
 ]
