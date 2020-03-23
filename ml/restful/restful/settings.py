@@ -141,4 +141,5 @@ CORS_ORIGIN_WHITELIST = (
   'http://contact-tracing.org',
   'https://www.contact-tracing.org',
   'https://contact-tracing.org',
+  'http://localhost:3000'
 )
