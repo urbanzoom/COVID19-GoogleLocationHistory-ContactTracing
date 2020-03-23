@@ -7,3 +7,5 @@ class Cluster(models.Model):
     timestamp = models.FloatField()
     cluster = models.TextField()
     source = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True)
