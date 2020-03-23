@@ -1,5 +1,7 @@
 import React from 'react'
-import { FilePond } from 'react-filepond'
+import { FilePond, registerPlugin } from 'react-filepond'
+import FilePondPluginFileValidateSize from 'filepond-plugin-file-validate-size'
+import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type'
 import S3 from 'aws-sdk/clients/s3'
 
 const s3 = new S3({
@@ -11,6 +13,9 @@ const s3 = new S3({
 class UploadComponent extends React.Component {
   constructor(props) {
     super(props);
+
+    registerPlugin(FilePondPluginFileValidateSize)
+    registerPlugin(FilePondPluginFileValidateType)
 
     this.state = {
       intersection: null,
@@ -29,6 +34,8 @@ class UploadComponent extends React.Component {
           ref={ref => (this.pond = ref)}
           files={this.state.files}
           maxFiles={1}
+          maxFileSize={'5MB'}
+          acceptedFileTypes={['application/json']}
           instantUpload={true}
           server={{
             process: this.serverProcess

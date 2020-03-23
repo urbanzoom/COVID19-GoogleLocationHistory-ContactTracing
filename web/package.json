@@ -10,6 +10,8 @@
     "aws-sdk": "^2.643.0",
     "bootstrap": "^4.4.1",
     "filepond": "^4.13.0",
+    "filepond-plugin-file-validate-size": "^2.2.1",
+    "filepond-plugin-file-validate-type": "^1.2.5",
     "node-sass": "^4.13.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
