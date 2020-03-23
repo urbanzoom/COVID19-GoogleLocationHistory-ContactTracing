@@ -7,6 +7,7 @@ import logging
 import pandas as pd
 from django.conf import settings
 from django.contrib.auth.models import User, Group
+from django.http import JsonResponse
 from rest_framework import permissions, viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -80,4 +81,4 @@ class WebhookViewSet(APIView):
                 raise
 
         # return Response(f"Success. {json.dumps(activity_segment_df[['startLocationlatitudeE7']].to_dict('records'))}")
-        return Response(df.to_json(orient='records'))
+        return JsonResponse(df.to_dict(orient='records'))
