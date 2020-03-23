@@ -73,6 +73,8 @@ class WebhookViewSet(APIView):
             # except OSError:
             #     pass
 
+            s3.Object(settings.REACT_APP_S3_BUCKET, filename).delete()
+
         except botocore.exceptions.ClientError as e:
             if e.response['Error']['Code'] == "404":
                 print("The object does not exist.")
