@@ -56,12 +56,12 @@ class WebhookViewSet(APIView):
             # filename2 = downfile.split(".json")[0] + "_activity_segment.csv"
             # activity_segment_df.to_csv(filename2, index=False)
             # print(f"Data exported:\n\t- {filename1}\n\t- {filename2}")
-            print("Data import and processing completed. Program terminated ...")
+            # print("Data import and processing completed. Program terminated ...")
 
-            try:
-                os.remove(downfile)
-            except OSError:
-                pass
+            # try:
+            #     os.remove(downfile)
+            # except OSError:
+            #     pass
 
         except botocore.exceptions.ClientError as e:
             if e.response['Error']['Code'] == "404":
