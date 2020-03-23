@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'corsheaders',
     'restful.api',
 ]
 
@@ -50,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'restful.urls'
@@ -132,3 +134,12 @@ REACT_APP_AWS_ACCESS_KEY_ID = env('REACT_APP_AWS_ACCESS_KEY_ID')
 REACT_APP_AWS_SECRET_ACCESS_KEY = env('REACT_APP_AWS_SECRET_ACCESS_KEY')
 REACT_APP_S3_BUCKET = env('REACT_APP_S3_BUCKET')
 REACT_APP_S3_REGION = env('REACT_APP_S3_REGION')
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+  'http://www.contact-tracing.org',
+  'http://contact-tracing.org',
+  'https://www.contact-tracing.org',
+  'https://contact-tracing.org',
+)
