@@ -11,6 +11,10 @@ function App() {
           <p>
             This is an open source project for contact tracing of COVID-19 virus by leveraging your personal Location History recorded by Google<sup>*</sup>.
           </p>
+          <div className='font-weight-bold'>Project Update (24 March 2020):</div>
+          <p>
+            As a proof-of-concept, we currently only have known clusters info of Malaysia. If you have access to verified info for clusters in other cities/countries, we welcome you to contribute to our community-driven database by writing to us: <a href='mailto:contact.tracing.org@gmail.com'>contact.tracing.org@gmail.com</a>.
+          </p>
         </div>
       </div>
       <div className='row'>
@@ -24,7 +28,11 @@ function App() {
       <section className='row'>
         <div className='col-lg-6'>
           <div className='font-weight-bold'>Message from Us:</div>
-          <iframe className='mb-3 map__image' width="560" height="315" src="https://www.youtube.com/embed/kK-COpqOzds" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe className='mb-3 map__image' width="560" height="315" src="https://www.youtube.com/embed/kK-COpqOzds" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+        </div>
+        <div className='col-lg-6'>
+          <div className='font-weight-bold'> How to download Google Location History:</div>
+          <iframe className='mb-3 map__image' width="560" height="315" src="https://www.youtube.com/embed/uQ2EunbKnO0" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         </div>
       </section>
       <section className='row'>

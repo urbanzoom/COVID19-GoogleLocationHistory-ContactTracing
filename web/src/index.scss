@@ -42,6 +42,20 @@ hr {
   margin: auto;
 }
 
+.result__container {
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-top: 2px dashed #fff;
+  padding-top: 2rem;
+  margin-top: 3rem;
+}
+
+.flex--center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .faq__list {
   dt {
     font-weight: 400;

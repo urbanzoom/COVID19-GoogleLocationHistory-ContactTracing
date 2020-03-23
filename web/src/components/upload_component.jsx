@@ -51,7 +51,7 @@ class UploadComponent extends React.Component {
       return ''
     } else if (this.state.intersection.length === 0) {
       return (
-        <p className='text-center'>
+        <p className='text-center result__container'>
           We didn't find any matches with confirm cases in our database.
           <br /><br />
           Please avoid any crowded places and practice social distancing at all time.
@@ -59,22 +59,33 @@ class UploadComponent extends React.Component {
       )
     } else if (this.state.intersection === 'error') {
       return (
-        <p className='text-center'>
+        <p className='text-center result__container'>
           Something went wrong with your uploaded file.
           <br /><br />
           Please check on <a href='#how-does-this-work'>the link below</a> to find out how to get the correct Location History file.
         </p>
       )
     } else {
-      const clusters = this.state.intersection.map(x => <p>  - {x}</p>)
+      const clusters = this.state.intersection.slice(0,3).map((x, i) => {
+        return (
+          <div className='row mb-2' key={i}>
+            <div className='col-6'>
+              <img src={`https://maps.googleapis.com/maps/api/staticmap?markers=color:red%7C${x.lat},${x.lng}&zoom=12&size=300x200&key=${process.env.REACT_APP_GMAP_API_KEY}`} />
+            </div>
+            <div className='col-6 flex--center'>
+              { x.clusterName }
+            </div>
+          </div>
+        )
+      })
       const match = this.state.intersection.length > 1 ? 'matches' : 'a match'
 
       return (
-        <p className='text-center'>
-          Unfortunately, we've found {match} in your travel history with the following clusters:
+        <div className='text-center result__container'>
+          We've found {match} in your travel history with the following clusters:
           <br /><br />
           {clusters}
-        </p>
+        </div>
       )
     }
   }
@@ -94,27 +105,35 @@ class UploadComponent extends React.Component {
         error('Something went wrong');
         return;
       }
-      // that.notifyServer(fileName)
+      that.notifyServer(fileName)
       // pass file unique id back to filepond
       load(data.Key);
     });
   }
 
-  // WIP
   notifyServer = (filename) => {
-    fetch('/', {filename: filename})
-      .then(resp => resp.json())
+    fetch(`${process.env.REACT_APP_ML_ENDPOINT}/?filename=${filename}`)
       .then(resp => {
-        if (resp.status >= 200) {
-          this.setState({
-            intersection: []
-          })
+        if (resp.ok) {
+          return resp.json()
         } else {
-          this.setState({
+          return this.setState({
             intersection: 'error'
           })
         }
       })
+      .then(data => {
+        this.setState({
+          intersection: data.map(r => {
+            return {
+              clusterName: r.cluster,
+              lat: r.latitude,
+              lng: r.longtitude
+            }
+          })
+        })
+      })
+      .catch(error => console.log(error) )
   }
 }
 
