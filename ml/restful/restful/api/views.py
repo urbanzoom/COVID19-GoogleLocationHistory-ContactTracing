@@ -46,7 +46,7 @@ class WebhookViewSet(APIView):
     # permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request, format=None):
-        filename = f"{request.GET.get('filename')}.json"
+        filename = request.GET.get('filename')
 
         df = pd.DataFrame.from_records(Cluster.objects.all().values())
         # logger.info(type(df))
