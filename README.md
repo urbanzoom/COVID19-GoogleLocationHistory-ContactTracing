@@ -1,5 +1,5 @@
 # COVID-19 contact tracing
-Covid 19 contact tracing using Google location data
+This is an open source project for contact tracing of COVID-19 virus by leveraging your personal Location History recorded by Google.
 
 ## How to Contribute
 All contributions are welcome! Please check [how to contribute](CONTRIBUTING.md) for details.
