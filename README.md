@@ -12,3 +12,23 @@ This software is released under the [BSD3 License](LICENSE).
 
 ## For Developers
 ### How to setup environment
+```
+# Create conda environment from environment.yml file
+conda env create -f ml/environment.yml
+
+# Activate environment
+conda activate covid-19
+
+# Check if they are running
+systemctl status gunicorn
+systemctl status nginx
+
+# Restart application server
+sudo systemctl restart gunicorn
+
+# Check access error log
+sudo tail -F /var/log/nginx/error.log
+
+# Check app log
+journalctl -u gunicorn --no-pager
+```
