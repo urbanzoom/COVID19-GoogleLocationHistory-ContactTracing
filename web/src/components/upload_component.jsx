@@ -73,6 +73,7 @@ class UploadComponent extends React.Component {
         </p>
       )
     } else {
+      // TODO: Remove .slice(0,3)
       const clusters = this.state.intersection.slice(0,3).map((x, i) => {
         return (
           <div className='row mb-2' key={i}>
@@ -100,8 +101,6 @@ class UploadComponent extends React.Component {
   serverProcess = (fieldName, file, metadata, load, error, progress, abort) => {
     const that = this
     const fileName = Date.now() + '_' + file.name
-    console.log('s3bucket:');
-    console.log(process.env.REACT_APP_S3_BUCKET);
     s3.upload({
       Bucket: process.env.REACT_APP_S3_BUCKET,
       Key: fileName,
