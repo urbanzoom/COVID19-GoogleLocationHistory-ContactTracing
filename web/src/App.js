@@ -50,7 +50,7 @@ function App() {
 
             <dt>How do you match my Google Location History against known COVID-19 clusters?</dt>
             <dd>
-              We do the match by space (within 50 meters from cluster location) and time (within same day).
+              We do the match by space (within 150 meters from cluster location) and time (within same day).
               <br/><br/>
               If we begin to start having access to more granular data around timing of clusters or previously visited locations by infected patients, we may consider narrowing the time window to below same day basis.
             </dd>
