@@ -1,9 +1,8 @@
-import json
+import logging
 import os
 
 import boto3
 import botocore
-import logging
 import pandas as pd
 from django.conf import settings
 from django.contrib.auth.models import User, Group
@@ -42,44 +41,33 @@ class WebhookViewSet(APIView):
     Webhook for uploaded file
     """
 
-    # permission_classes = [permissions.IsAuthenticated]
-
     def get(self, request, format=None):
         filename = request.GET.get('filename')
 
-        df = pd.DataFrame.from_records(Cluster.objects.all().values())
-        # logger.info(type(df))
-        # logger.info(df.info())
+        cluster_df = pd.DataFrame.from_records(Cluster.objects.all().values())
+        logger.info('Fetched cluster from database.')
 
         try:
             s3 = boto3.Session(aws_access_key_id=settings.REACT_APP_AWS_ACCESS_KEY_ID,
                                aws_secret_access_key=settings.REACT_APP_AWS_SECRET_ACCESS_KEY).resource("s3")
             downfile = f"restful/analytics/{filename}"
             s3.meta.client.download_file(settings.REACT_APP_S3_BUCKET, filename, downfile)
+            logger.info('Downloaded S3 file ...')
 
-            # analytics
-            # print(f"Processing {downfile} ...")
-            # place_visit_df, activity_segment_df = parse_google_takeout_semantic_location_history(downfile)
-            #
-            # filename1 = downfile.split(".json")[0] + "_place_visit.csv"
-            # place_visit_df.to_csv(filename1, index=False)
-            # filename2 = downfile.split(".json")[0] + "_activity_segment.csv"
-            # activity_segment_df.to_csv(filename2, index=False)
-            # print(f"Data exported:\n\t- {filename1}\n\t- {filename2}")
-            # print("Data import and processing completed. Program terminated ...")
-            #
-            # try:
-            #     os.remove(downfile)
-            # except OSError:
-            #     pass
+            matched_cluster_df = intersections(downfile, cluster_df)
+            logger.info('Matching completed.')
+
+            try:
+                os.remove(downfile)
+            except OSError:
+                pass
 
             s3.Object(settings.REACT_APP_S3_BUCKET, filename).delete()
 
         except botocore.exceptions.ClientError as e:
-            if e.response['Error']['Code'] == "404":
-                print("The object does not exist.")
+            if e.response['Error']['Code'] == '404':
+                print('The object does not exist.')
             else:
                 raise
 
-        # return Response(f"Success. {json.dumps(activity_segment_df[['startLocationlatitudeE7']].to_dict('records'))}")
-        return Response(df.to_dict(orient='records'))
+        return Response(matched_cluster_df.to_dict(orient='records'))
