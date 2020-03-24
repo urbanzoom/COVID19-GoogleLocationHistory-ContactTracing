@@ -50,10 +50,11 @@ hr {
   margin-top: 3rem;
 }
 
-.flex--center {
+.flex__column--center {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .faq__list {

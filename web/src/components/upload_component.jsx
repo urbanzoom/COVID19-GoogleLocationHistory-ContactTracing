@@ -73,15 +73,15 @@ class UploadComponent extends React.Component {
         </p>
       )
     } else {
-      // TODO: Remove .slice(0,3)
-      const clusters = this.state.intersection.slice(0,3).map((x, i) => {
+      const clusters = this.state.intersection.map((x, i) => {
         return (
           <div className='row mb-2' key={i}>
             <div className='col-6'>
               <img src={`https://maps.googleapis.com/maps/api/staticmap?markers=color:red%7C${x.lat},${x.lng}&zoom=12&size=300x200&key=${process.env.REACT_APP_GMAP_API_KEY}`} />
             </div>
-            <div className='col-6 flex--center'>
-              { x.clusterName }
+            <div className='col-6 flex__column--center'>
+              <div>{ x.clusterName }</div>
+              <small>on { x.date }</small>
             </div>
           </div>
         )
@@ -131,12 +131,15 @@ class UploadComponent extends React.Component {
         }
       })
       .then(data => {
+        const formatter = new Intl.DateTimeFormat('en-SG')
+
         this.setState({
           intersection: data.map(r => {
             return {
               clusterName: r.cluster,
               lat: r.latitude,
-              lng: r.longitude
+              lng: r.longitude,
+              date: formatter.format(new Date(r.timestamp))
             }
           })
         })
