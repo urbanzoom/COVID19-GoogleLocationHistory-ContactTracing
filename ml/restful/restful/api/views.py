@@ -45,6 +45,7 @@ class WebhookViewSet(APIView):
         filename = request.GET.get('filename')
 
         cluster_df = pd.DataFrame.from_records(Cluster.objects.all().values())
+        original_columns = cluster_df.columns
         logger.info('Fetched cluster from database.')
 
         try:
@@ -55,6 +56,7 @@ class WebhookViewSet(APIView):
             logger.info('Downloaded S3 file ...')
 
             matched_cluster_df = intersections(downfile, cluster_df)
+            matched_cluster_df = matched_cluster_df[original_columns].copy()
             logger.info('Matching completed.')
 
             try:
