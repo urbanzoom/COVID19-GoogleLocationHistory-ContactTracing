@@ -40,7 +40,7 @@ function App() {
           <div className='font-weight-bold mt-3'>FAQs:</div>
           <dl className='faq__list'>
             <dt>How do I get more info on this project?</dt>
-            <dd>Check out this subreddit post on <a href='https://www.reddit.com/t/coronavirus/' alt='Coronavirus on Redit' target='_blank'>r/coronavirus</a>. We will try our best to answer all your questions (not found on FAQs) as possible over at Reddit. </dd>
+            <dd>Check out this subreddit post on <a href='https://www.reddit.com/r/malaysia/comments/fo0scl/contacttracing_open_source_project_check_your/' alt='Reddit post' target='_blank'>r/malaysia</a>. We will try our best to answer all your questions (not found on FAQs) as possible over at Reddit. </dd>
 
             <dt>How does this work?</dt>
             <dd>We use your Location History recorded by Google (see <a href='https://www.youtube.com/watch?v=uQ2EunbKnO0' alt='Google Location History download instruction' target='_blank'>how to download your own Location History</a>) to run against a database of known clusters of COVID-19. </dd>
