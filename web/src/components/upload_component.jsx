@@ -136,7 +136,7 @@ class UploadComponent extends React.Component {
             return {
               clusterName: r.cluster,
               lat: r.latitude,
-              lng: r.longtitude
+              lng: r.longitude
             }
           })
         })
