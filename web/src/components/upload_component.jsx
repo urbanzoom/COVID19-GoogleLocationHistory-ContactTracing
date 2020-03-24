@@ -69,7 +69,7 @@ class UploadComponent extends React.Component {
         <p className='text-center result__container'>
           Something went wrong with your uploaded file.
           <br /><br />
-          Please check on <a href='#how-does-this-work'>the link below</a> to find out how to get the correct Location History file.
+          Please check on <a href='#download-location-history-video'>the video below</a> to find out how to get the correct Location History file.
         </p>
       )
     } else {

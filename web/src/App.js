@@ -30,7 +30,7 @@ function App() {
           <div className='font-weight-bold'>Message from Us:</div>
           <iframe className='mb-3 map__image' width="560" height="315" src="https://www.youtube.com/embed/kK-COpqOzds" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         </div>
-        <div className='col-lg-6'>
+        <div id='download-location-history-video' className='col-lg-6'>
           <div className='font-weight-bold'> How to download Google Location History:</div>
           <iframe className='mb-3 map__image' width="560" height="315" src="https://www.youtube.com/embed/uQ2EunbKnO0" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         </div>
@@ -42,8 +42,8 @@ function App() {
             <dt>How do I get more info on this project?</dt>
             <dd>Check out this subreddit post on <a href='https://www.reddit.com/t/coronavirus/' alt='Coronavirus on Redit' target='_blank'>r/coronavirus</a>. We will try our best to answer all your questions (not found on FAQs) as possible over at Reddit. </dd>
 
-            <dt id='how-does-this-work'>How does this work?</dt>
-            <dd>We use your Location History recorded by Google (see <a href='/'>how to download your own Location History</a>) to run against a database of known clusters of COVID-19. </dd>
+            <dt>How does this work?</dt>
+            <dd>We use your Location History recorded by Google (see <a href='https://www.youtube.com/watch?v=uQ2EunbKnO0' alt='Google Location History download instruction' target='_blank'>how to download your own Location History</a>) to run against a database of known clusters of COVID-19. </dd>
 
             <dt>Where do you source for your known clusters of COVID-19?</dt>
             <dd>As an initial demo of the project, we just take the publicly announced clusters from Malaysia. We hope to quickly open up access to other folks so that this can be crowd-sourced from the community around the world to contribute to an ever-growing repository of possible COVID-19 clusters or previous visited locations by COVID-19 patients.</dd>
@@ -66,7 +66,7 @@ function App() {
             <dd>Please reach out to <a href='mailto:contact.tracing.org@gmail.com'>contact.tracing.org@gmail.com</a>. We will liaise with you from there. </dd>
 
             <dt>I’m a software developer or data scientist or cybersecurity experts or basically a geek. How can I contribute?</dt>
-            <dd>The source code is available here on <a href='https://github.com/urbanzoom/covid-19-contact-tracing' alt='GitHub Repo' target='_blank'>GitHub</a>. Feel free to contribute or clone this project to further improve on it. This is meant to be just a proof of concept. We certainly don’t have all the answers (probably we don’t even know what’re the proper questions to ask in the first place) but we believe we should just build it super quick and let the world build upon it. </dd>
+            <dd>The source code is available here on <a href='https://github.com/urbanzoom/COVID19-GoogleLocationHistory-ContactTracing' alt='GitHub Repo' target='_blank'>GitHub</a>. Feel free to contribute or clone this project to further improve on it. This is meant to be just a proof of concept. We certainly don’t have all the answers (probably we don’t even know what’re the proper questions to ask in the first place) but we believe we should just build it super quick and let the world build upon it. </dd>
 
             <dt>Who’s behind this project?</dt>
             <dd>This was done over a weekend by a few friends (we’re all teammates in a small proptech startup based in Singapore). We are Niresh, Malai, Shinn, Shawn & Michael.</dd>
